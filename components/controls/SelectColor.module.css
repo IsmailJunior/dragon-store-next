@@ -1,0 +1,24 @@
+.select {
+	overflow: hidden;
+	width: 2rem;
+	height: 2rem;
+	border-radius: 50%;
+	cursor: pointer;
+}
+
+.select:has(input:disabled) {
+	pointer-events: none;
+}
+
+.select:has(input:checked) {
+	outline: 2px #3298ff solid;
+	border-color: #3298ff;
+}
+
+.select input {
+	display: none;
+	appearance: none;
+	width: 0;
+	height: 0;
+	pointer-events: none;
+}

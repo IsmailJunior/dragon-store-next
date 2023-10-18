@@ -1,0 +1,35 @@
+.bar {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+	width: max-content;
+	height: 25px;
+	cursor: pointer;
+}
+
+.bar input {
+	display: none;
+	appearance: none;
+	outline: 0;
+	pointer-events: none;
+}
+
+.bar::after,
+.bar::before {
+	content: "";
+	display: block;
+	width: 25px;
+	height: 1px;
+	background-color: black;
+	border-radius: 10px;
+	transition: all 300ms ease;
+}
+
+.bar:has(input:checked)::before {
+	rotate: 45deg;
+	transform: translate(0px, 10px);
+}
+.bar:has(input:checked)::after {
+	rotate: -45deg;
+	transform: translate(-1px, -10px);
+}

@@ -1,0 +1,19 @@
+.select {
+	height: 5rem;
+	border: 1px gray solid;
+	border-radius:0.8rem;
+	cursor: pointer;
+}
+
+.select:has(input:checked) {
+	outline: 2px #3298ff solid;
+	border-color: #3298ff;
+}
+
+.select input {
+	display: none;
+	appearance: none;
+	width: 0;
+	height: 0;
+	pointer-events: none;
+}
