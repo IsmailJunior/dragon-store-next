@@ -1,13 +1,22 @@
+import { useState, useEffect } from "react";
+import { useMediaQuery } from "react-responsive";
 import { type IItemObject } from "@/types/item";
 import Link from "next/link";
 
 interface ICardProps {
-  data: IItemObject;
+	data: IItemObject;
 }
 
 function Card(props: ICardProps) {
-  const { data } = props;
-  return (
+	const { data } = props;
+	const [isMinWidthMedium, setIsMinWidthMedium] = useState(false);
+	const mediaQuery = useMediaQuery({ query: `(max-width: 760px)` });
+	useEffect(() => {
+		if (mediaQuery !== isMinWidthMedium) {
+			setIsMinWidthMedium(mediaQuery);
+		}
+	}, [mediaQuery, isMinWidthMedium]);
+	return (
 		<Link
 			href={`store/${data.id}`}
 			className="relative h-116 w-80 md:w-96 mt-6 overflow-hidden rounded-3xl shadow-lg"
@@ -33,10 +42,14 @@ function Card(props: ICardProps) {
 			</div>
 			<figure
 				className="absolute w-80 h-116 top-0 left-0 z-0 bg-cover bg-no-repeat bg-center md:w-96"
-				style={{ backgroundImage: `url(${data.card.desktop})` }}
+				style={{
+					backgroundImage: `url(${
+						isMinWidthMedium ? data.card.mobile : data.card.desktop
+					})`,
+				}}
 			/>
 		</Link>
-  );
+	);
 }
 
 export default Card;
