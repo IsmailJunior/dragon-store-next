@@ -20,18 +20,12 @@ function HomePage(props: ILandingBannerProps) {
 	);
 }
 
-// export async function getServerSideProps() {
-// 	const data = await getLandingDocs();
-// 	return {
-// 		props: {
-// 			data,
-// 		},
-// 	};
-// }
-export async function getStaticProps() {
-  const data = await getLandingDocs();
-  return {
-		props: { data },
-  };
+export async function getServerSideProps() {
+	const data = await getLandingDocs();
+	return {
+		props: {
+			data,
+		},
+	};
 }
 export default HomePage;

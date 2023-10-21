@@ -86,17 +86,10 @@ function StorePage(props: IStorePageProps) {
   );
 }
 
-// export async function getServerSideProps() {
-// 	const data = await getStoreDocs();
-// 	return {
-// 		props: { data },
-// 	};
-// }
-
-export async function getStaticProps() {
-  const data = await getStoreDocs();
-  return {
+export async function getServerSideProps() {
+	const data = await getStoreDocs();
+	return {
 		props: { data },
-  };
+	};
 }
 export default StorePage;
