@@ -1,6 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   output: 'export',
+  images.unoptimized = true,
   images: {
     'domains': [ 'www.apple.com', 'store.storeimages.cdn-apple.com', "firebasestorage.googleapis.com" ]
   },
