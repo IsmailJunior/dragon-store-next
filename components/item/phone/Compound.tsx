@@ -2,7 +2,11 @@ import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { v4 as uuid } from "uuid";
 import { type IItemObject } from "@/types/item";
-import { selectIsModelSelected, selectModel } from "@/features/item/itemSlice";
+import {
+	selectIsModelSelected,
+	selectModel,
+	selectImages,
+} from "@/features/item/itemSlice";
 import Headline from "@/components/Headline";
 import Preview from "@/components/item/components/Preview";
 import SelectColor from "@/components/controls/SelectColor";
@@ -35,6 +39,10 @@ interface ISelectedColor {
 
 function CompoundMobile(props: ICompoundProps) {
 	const { data } = props;
+
+	const dispatch = useDispatch();
+	const isModelSelected = useSelector(selectIsModelSelected);
+	const images = useSelector(selectImages);
 	const [selected, setSelected] = useState({
 		title: data.title,
 		colorTitle: " ",
@@ -44,8 +52,6 @@ function CompoundMobile(props: ICompoundProps) {
 		isModelChecked: false,
 		isColorChecked: false,
 	});
-	const dispatch = useDispatch();
-	const isModelSelected = useSelector(selectIsModelSelected);
 	const [prevValue, setPrevValue] = useState(selected);
 	const colors = data.models
 		.filter(model => model.title === selected.title)
@@ -55,9 +61,8 @@ function CompoundMobile(props: ICompoundProps) {
 		setSelected(selected);
 	}, [selected, prevValue]);
 	const handleOnClick = (args: any) => {
-		dispatch(selectModel({ isModelSelected: true }));
+		dispatch(selectModel({ selectedModel: args, isModelSelected: true }));
 		setSelected({ ...args, isModelChecked: isModelSelected });
-		console.log(selected);
 	};
 	return (
 		<div className="flex flex-col xl:flex-row-reverse container md:w-150 xl:w-full">
@@ -163,6 +168,7 @@ function CompoundMobile(props: ICompoundProps) {
 					</div>
 					{data.storages.map((storage, index) => (
 						<Select
+							key={index}
 							id={uuid()}
 							name="storage"
 							headline={storage.space}
