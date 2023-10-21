@@ -97,7 +97,6 @@ export async function getStaticProps() {
   const data = await getStoreDocs();
   return {
 		props: { data },
-		revalidate: 600,
   };
 }
 export default StorePage;

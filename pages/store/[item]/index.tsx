@@ -58,11 +58,9 @@ export async function getStaticPaths() {
 }
 export async function getStaticProps(context: any) {
   const item = context.params.item;
-  console.log(item);
   const data = await getItemDoc(item);
   return {
 		props: { data },
-		revalidate: 5,
   };
 }
 

@@ -31,8 +31,7 @@ function HomePage(props: ILandingBannerProps) {
 export async function getStaticProps() {
   const data = await getLandingDocs();
   return {
-	  props: { data },
-	  revalidate: 600
+		props: { data },
   };
 }
 export default HomePage;
