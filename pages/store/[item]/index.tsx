@@ -48,7 +48,7 @@ function Page(props: IItemsPageProps) {
 export async function getStaticPaths() {
   const items = await getItemsDocs();
   return {
-		fallback: true,
+		fallback: false,
 		paths:
 			items &&
 			items.map(item => ({
@@ -58,6 +58,7 @@ export async function getStaticPaths() {
 }
 export async function getStaticProps(context: any) {
   const item = context.params.item;
+  console.log(item);
   const data = await getItemDoc(item);
   return {
 		props: { data },
