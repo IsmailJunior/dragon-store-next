@@ -35,13 +35,25 @@ function Page(props: IItemsPageProps) {
   );
 }
 
+// export async function getServerSideProps(context: any) {
+// 	const data = await getItemsDocs();
+// 	const { req } = context;
+// 	const { res } = context;
+// 	console.log(req);
+// 	return {
+// 		props: { data },
+// 	};
+// }
+
 export async function getStaticPaths() {
   const items = await getItemsDocs();
   return {
-    fallback: false,
-    paths: items?.map(item => ({
-      params: { item: item.id.toString() },
-    })),
+		fallback: true,
+		paths:
+			items &&
+			items.map(item => ({
+				params: { item: item.id.toString() },
+			})),
   };
 }
 export async function getStaticProps(context: any) {
@@ -49,7 +61,7 @@ export async function getStaticProps(context: any) {
   const data = await getItemDoc(item);
   return {
 		props: { data },
-		revalidate: 600,
+		revalidate: 5,
   };
 }
 

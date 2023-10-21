@@ -85,6 +85,14 @@ function StorePage(props: IStorePageProps) {
     </Fragment>
   );
 }
+
+// export async function getServerSideProps() {
+// 	const data = await getStoreDocs();
+// 	return {
+// 		props: { data },
+// 	};
+// }
+
 export async function getStaticProps() {
   const data = await getStoreDocs();
   return {
