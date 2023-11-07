@@ -10,7 +10,6 @@ import Container from "@/components/ui/Container";
 import Hamburger from "@/components/header/Hamburger";
 import ListItem from "@/components/header/ListItem";
 import MenuItem from "@/components/header/MenuItem";
-import Brand from "@/components/Brand";
 import { type DocumentData } from "firebase/firestore";
 function Navbar() {
 	const [data, setData] = useState<DocumentData>();
@@ -76,9 +75,6 @@ function Navbar() {
 			>
 				<Container>
 					<ul className="flex justify-between items-center gap-24 h-full flex-row-reverse z-50">
-						<ListItem href="/">
-							<Brand />
-						</ListItem>
 						<div className="hidden md:flex md:justify-between md:items-center md:w-full flex-row-reverse font-normal">
 							{data?.map((navItem: any, i: number) => (
 								<ListItem
