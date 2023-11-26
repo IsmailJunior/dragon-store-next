@@ -15,9 +15,9 @@ function Navbar() {
 	const [data, setData] = useState<DocumentData>();
 	const [showMenu, setShowMenu] = useState(false);
 	const [showMenuMobile, setShowMenuMobile] = useState(false);
-	const [menuItem, setMenuItem] = useState(data?.at(0).tag);
+	const [menuItem, setMenuItem] = useState(data?.at(0)?.tag);
 	const currentTag = data?.filter(
-		(menuListItem: any) => menuListItem.tag === menuItem
+		(menuListItem: any) => menuListItem?.tag === menuItem
 	)[0];
 	const router = useRouter();
 	const pathname = router.pathname;
@@ -44,6 +44,7 @@ function Navbar() {
 		(async () => {
 			const items = await getNavbarDocs();
 			setData(items);
+			console.log(data);
 		})();
 		handleScroll();
 		window.addEventListener("scroll", handleScroll);
@@ -80,11 +81,11 @@ function Navbar() {
 								<ListItem
 									key={i}
 									onMouseEnter={() =>
-										onMouseEnterHandler(navItem.tag)
+										onMouseEnterHandler(navItem?.tag)
 									}
 									href={`/${navItem.href}`}
 								>
-									{navItem.tag}
+									{navItem?.tag}
 								</ListItem>
 							))}
 						</div>

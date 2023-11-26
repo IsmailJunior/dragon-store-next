@@ -20,7 +20,7 @@ export const getLandingDocs = async () => {
 			id: item.id,
 		}));
 		//get landing refrences
-		const landingDocRef = doc(landingPageRef, "landing");
+		const landingDocRef = doc(landingPageRef, "aK38FY5I14dibIDJpwCk");
 		const landingDocSnapshot = await getDoc(landingDocRef);
 		const landingRef = landingDocSnapshot.data();
 		//sort items to match landing refrences
@@ -69,7 +69,7 @@ export const getStoreDocs = async () => {
 			id: item.id,
 		}));
 		//get store refrences
-		const storeDocRef = doc(storePageRef, "store");
+		const storeDocRef = doc(storePageRef, "AhAfqPHHIOARtZdmTjuj");
 		const storeDocSnapshot = await getDoc(storeDocRef);
 		const sectionsRef = storeDocSnapshot.data();
 		//sort items to match store refrences
