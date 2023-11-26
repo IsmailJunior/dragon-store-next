@@ -65,24 +65,24 @@ function StorePage(props: IStorePageProps) {
     },
   ];
   return (
-    <Fragment>
-      <NextSeo title="متجر دراكون - دراكون كروب" />
-      <div className="mt-32 space-y-16">
-        <ContainerFluid>
-          <div className="w-80 md:w-116 ml-auto text-end">
-            <Headline
-              size="text-4xl"
-              title="المتجر"
-              description="افضل مكان لشراء المنتجات التي تحب"
-            />
-          </div>
-        </ContainerFluid>
-        <Categories data={categoryData} />
-        {data.map((section, i) => (
-          <SequenceSection key={i} data={section} />
-        ))}
-      </div>
-    </Fragment>
+		<Fragment>
+			<NextSeo title="Apple Store" />
+			<div className="mt-32 space-y-16">
+				<ContainerFluid>
+					<div className="w-80 md:w-116 ml-auto text-end">
+						<Headline
+							size="text-4xl"
+							title="المتجر"
+							description="افضل مكان لشراء المنتجات التي تحب"
+						/>
+					</div>
+				</ContainerFluid>
+				<Categories data={categoryData} />
+				{data.map((section, i) => (
+					<SequenceSection key={i} data={section} />
+				))}
+			</div>
+		</Fragment>
   );
 }
 

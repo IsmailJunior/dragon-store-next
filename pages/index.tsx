@@ -12,7 +12,7 @@ function HomePage(props: ILandingBannerProps) {
 	return (
 		<Fragment>
 			<Head>
-				<title>دراكون</title>
+				<title>Apple</title>
 			</Head>
 			<MainFeaturedBanners data={data} />
 			<SecondaryFeaturedBanners data={data} />
