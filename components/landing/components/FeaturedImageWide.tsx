@@ -16,14 +16,16 @@ function FeaturedImageWide(props: IFeaturedImageProps) {
   }, [mediaQuery, isMinWidthMedium]);
 
   return (
-    <figure
-      className="absolute z-0 top-0 left-0 h-116 w-full bg-cover bg-no-repeat bg-center md:h-120"
-      style={{
-        backgroundImage: `url(${
-          isMinWidthMedium ? data.banner.wide.mobile : data.banner.wide.desktop
-        })`,
-      }}
-    ></figure>
+		<figure
+			className="absolute z-0 top-0 left-0 h-116 w-full bg-cover bg-no-repeat bg-center md:h-120"
+			style={{
+				backgroundImage: `url(${
+					isMinWidthMedium
+						? data?.banner?.wide.mobile
+						: data?.banner?.wide.desktop
+				})`,
+			}}
+		></figure>
   );
 }
 

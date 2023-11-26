@@ -14,14 +14,14 @@ function FeaturedBannerPortrait(props: IFeaturedBannerProps) {
 		>
 			<div className="z-10 mt-10 text-center md:mt-20">
 				<h1
-					style={{ color: data.text_colors.banner.portrait.title }}
+					style={{ color: data.text_colors?.banner?.portrait.title }}
 					className="text-3xl md:text-4xl font-medium"
 				>
 					{data.title}
 				</h1>
 				<p
 					style={{
-						color: data.text_colors.banner.portrait.description,
+						color: data.text_colors?.banner?.portrait.description,
 					}}
 					className="w-80 md:w-96 lg:w-116 text-lg md:text-xl lg:text-2xl font-light"
 				>

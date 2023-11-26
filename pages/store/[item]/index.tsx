@@ -9,6 +9,7 @@ interface IItemsPageProps {
 
 function Page(props: IItemsPageProps) {
 	const { data } = props;
+	console.log(data);
 	return (
 		<Fragment>
 			<NextSeo
